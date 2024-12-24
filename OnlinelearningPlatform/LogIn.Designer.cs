@@ -140,7 +140,6 @@
             login_password_TB.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             login_password_TB.Location = new Point(295, 257);
             login_password_TB.Name = "login_password_TB";
-            login_password_TB.PasswordChar = '*';
             login_password_TB.Size = new Size(255, 24);
             login_password_TB.TabIndex = 6;
             login_password_TB.UseSystemPasswordChar = true;

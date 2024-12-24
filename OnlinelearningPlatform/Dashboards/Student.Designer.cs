@@ -33,18 +33,27 @@
             label2 = new Label();
             close_BTN = new Label();
             panel2 = new Panel();
-            courses_BTN = new Button();
-            performance_BTN = new Button();
-            button1 = new Button();
             studentName_LB = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
+            courses_GB = new GroupBox();
+            label4 = new Label();
+            pictureBox4 = new PictureBox();
+            label3 = new Label();
+            label1 = new Label();
+            performance_GB = new GroupBox();
+            StudentReport = new DataGridView();
+            assessment_GB = new GroupBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            courses_GB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            performance_GB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)StudentReport).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -82,14 +91,11 @@
             close_BTN.Size = new Size(18, 18);
             close_BTN.TabIndex = 1;
             close_BTN.Text = "X";
-            close_BTN.Click += label1_Click;
+            close_BTN.Click += close_BTN_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(33, 11, 97);
-            panel2.Controls.Add(courses_BTN);
-            panel2.Controls.Add(performance_BTN);
-            panel2.Controls.Add(button1);
             panel2.Controls.Add(studentName_LB);
             panel2.Controls.Add(pictureBox1);
             panel2.Dock = DockStyle.Left;
@@ -99,91 +105,133 @@
             panel2.Size = new Size(266, 697);
             panel2.TabIndex = 1;
             // 
-            // courses_BTN
-            // 
-            courses_BTN.BackColor = Color.FromArgb(33, 11, 97);
-            courses_BTN.FlatStyle = FlatStyle.Flat;
-            courses_BTN.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            courses_BTN.ForeColor = SystemColors.ButtonHighlight;
-            courses_BTN.Location = new Point(29, 377);
-            courses_BTN.Margin = new Padding(2);
-            courses_BTN.Name = "courses_BTN";
-            courses_BTN.Size = new Size(200, 37);
-            courses_BTN.TabIndex = 6;
-            courses_BTN.Text = "COURSES";
-            courses_BTN.UseVisualStyleBackColor = false;
-            // 
-            // performance_BTN
-            // 
-            performance_BTN.BackColor = Color.FromArgb(33, 11, 97);
-            performance_BTN.FlatStyle = FlatStyle.Flat;
-            performance_BTN.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            performance_BTN.ForeColor = SystemColors.ButtonHighlight;
-            performance_BTN.Location = new Point(29, 314);
-            performance_BTN.Margin = new Padding(2);
-            performance_BTN.Name = "performance_BTN";
-            performance_BTN.Size = new Size(200, 37);
-            performance_BTN.TabIndex = 5;
-            performance_BTN.Text = "VIEW PERFORMANCE";
-            performance_BTN.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(33, 11, 97);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(29, 247);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(200, 37);
-            button1.TabIndex = 4;
-            button1.Text = "DASHBOARD";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // studentName_LB
             // 
             studentName_LB.AutoSize = true;
-            studentName_LB.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            studentName_LB.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             studentName_LB.ForeColor = SystemColors.ButtonFace;
-            studentName_LB.Location = new Point(59, 192);
+            studentName_LB.Location = new Point(26, 403);
             studentName_LB.Margin = new Padding(2, 0, 2, 0);
             studentName_LB.Name = "studentName_LB";
-            studentName_LB.Size = new Size(112, 17);
+            studentName_LB.Size = new Size(214, 31);
             studentName_LB.TabIndex = 3;
             studentName_LB.Text = "<Student name>";
+            studentName_LB.MouseDown += Student_MouseDown;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(13, 5);
+            pictureBox1.Location = new Point(-9, 0);
             pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(247, 165);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(275, 183);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(341, 127);
+            pictureBox2.Image = Properties.Resources.logo;
+            pictureBox2.Location = new Point(0, 49);
             pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(262, 157);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(639, 127);
+            pictureBox3.Image = Properties.Resources._71XKoLJSZ1L__AC_UF1000_1000_QL80_;
+            pictureBox3.Location = new Point(655, 49);
             pictureBox3.Margin = new Padding(2);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(262, 157);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 3;
             pictureBox3.TabStop = false;
+            // 
+            // courses_GB
+            // 
+            courses_GB.Controls.Add(label4);
+            courses_GB.Controls.Add(pictureBox4);
+            courses_GB.Controls.Add(label3);
+            courses_GB.Controls.Add(label1);
+            courses_GB.Controls.Add(pictureBox3);
+            courses_GB.Controls.Add(pictureBox2);
+            courses_GB.Location = new Point(271, 62);
+            courses_GB.Name = "courses_GB";
+            courses_GB.Size = new Size(925, 249);
+            courses_GB.TabIndex = 4;
+            courses_GB.TabStop = false;
+            courses_GB.Text = "Courses";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(400, 218);
+            label4.Name = "label4";
+            label4.Size = new Size(100, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Database systems";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.f7cdd204bf88;
+            pictureBox4.Location = new Point(315, 49);
+            pictureBox4.Margin = new Padding(2);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(262, 157);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 6;
+            pictureBox4.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(731, 218);
+            label3.Name = "label3";
+            label3.Size = new Size(112, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Computer networks";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(81, 218);
+            label1.Name = "label1";
+            label1.Size = new Size(105, 15);
+            label1.TabIndex = 4;
+            label1.Text = "Intelligent systems";
+            // 
+            // performance_GB
+            // 
+            performance_GB.Controls.Add(StudentReport);
+            performance_GB.Location = new Point(271, 317);
+            performance_GB.Name = "performance_GB";
+            performance_GB.Size = new Size(925, 239);
+            performance_GB.TabIndex = 5;
+            performance_GB.TabStop = false;
+            performance_GB.Text = "Performance report";
+            // 
+            // StudentReport
+            // 
+            StudentReport.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            StudentReport.GridColor = SystemColors.ActiveBorder;
+            StudentReport.Location = new Point(22, 22);
+            StudentReport.Name = "StudentReport";
+            StudentReport.ReadOnly = true;
+            StudentReport.Size = new Size(894, 211);
+            StudentReport.TabIndex = 0;
+            // 
+            // assessment_GB
+            // 
+            assessment_GB.Location = new Point(271, 562);
+            assessment_GB.Name = "assessment_GB";
+            assessment_GB.Size = new Size(925, 197);
+            assessment_GB.TabIndex = 6;
+            assessment_GB.TabStop = false;
+            assessment_GB.Text = "Assessments due";
             // 
             // Student
             // 
@@ -191,13 +239,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1199, 759);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
+            Controls.Add(assessment_GB);
+            Controls.Add(performance_GB);
+            Controls.Add(courses_GB);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "Student";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -206,6 +256,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            courses_GB.ResumeLayout(false);
+            courses_GB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            performance_GB.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)StudentReport).EndInit();
             ResumeLayout(false);
         }
 
@@ -216,12 +271,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label studentName_LB;
-        private System.Windows.Forms.Button courses_BTN;
-        private System.Windows.Forms.Button performance_BTN;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private Label studentName_LB;
+        private GroupBox courses_GB;
+        private Label label3;
+        private Label label1;
+        private GroupBox performance_GB;
+        private GroupBox assessment_GB;
+        private Label label4;
+        private PictureBox pictureBox4;
+        private DataGridView dataGridView2;
+        private DataGridView StudentReport;
     }
 }
 

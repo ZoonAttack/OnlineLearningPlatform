@@ -14,12 +14,15 @@ namespace OnlinelearningPlatform
 {
     public partial class Student : Form
     {
-        public Student()
+        public Student(string username)
         {
             InitializeComponent();
+            DataTable dt = Utility.GetReport(username, "student.com");
+            StudentReport.DataSource = dt;
+            studentName_LB.Text = username.Split('@')[0];
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void close_BTN_Click(object sender, EventArgs e)
         {
             manager.managerInstance.Close();
         }
@@ -34,7 +37,7 @@ namespace OnlinelearningPlatform
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        private void LogIn_MouseDown(object sender, MouseEventArgs e)
+        private void Student_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -43,5 +46,6 @@ namespace OnlinelearningPlatform
             }
         }
         #endregion
+
     }
 }

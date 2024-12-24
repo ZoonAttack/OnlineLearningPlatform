@@ -94,5 +94,49 @@ namespace OnlinelearningPlatform
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             return Tuple.Create(false, string.Empty);
         }
+        public static string GetID(string username)
+        {
+            try
+            {
+                string connectionString = "Data Source=ZOON;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+                string query = "select ID from Student";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    connection.Open();
+                    sda.Fill(dt);
+                    connection.Close();
+                    return dt.Rows[0]["ID"].ToString();
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            return null;
+        }
+        public static DataTable GetReport(string username, string identifier)
+        {
+            try
+            {
+                string connectionString = "Data Source=ZOON;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+                string query = "select ID, Date, Content from Report join Receive_Report on Report.ID = Receive_Report.Report_ID where Receive_Report.Student_ID = @studentID";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("studentID", GetID(username));
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    connection.Open();
+                    sda.Fill(dt);
+                    return dt;
+                }
+            }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message); }
+            return null;
+        }
     }
 }

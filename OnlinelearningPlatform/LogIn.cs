@@ -30,7 +30,7 @@ namespace OnlinelearningPlatform
                 switch (tuple.Item2)
                 {
                     case "student.com":
-                        Student student = new Student();
+                        Student student = new Student(login_username_TB.Text.Split('@')[0]);
                         student.Show();
                         Hide();
                         Close();

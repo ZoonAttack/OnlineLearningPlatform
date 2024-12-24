@@ -180,7 +180,6 @@
             register_password_TB.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             register_password_TB.Location = new Point(292, 267);
             register_password_TB.Name = "register_password_TB";
-            register_password_TB.PasswordChar = 'd';
             register_password_TB.Size = new Size(255, 24);
             register_password_TB.TabIndex = 18;
             register_password_TB.UseSystemPasswordChar = true;
