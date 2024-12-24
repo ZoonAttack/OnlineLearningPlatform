@@ -33,7 +33,7 @@
             pictureBox1 = new PictureBox();
             label6 = new Label();
             signUp_BTN = new Button();
-            label1 = new Label();
+            close_BTN = new Label();
             label2 = new Label();
             label3 = new Label();
             login_username_TB = new TextBox();
@@ -89,18 +89,20 @@
             signUp_BTN.TabIndex = 10;
             signUp_BTN.Text = "SIGN UP";
             signUp_BTN.UseVisualStyleBackColor = false;
+            signUp_BTN.Click += signUp_BTN_Click;
             // 
-            // label1
+            // close_BTN
             // 
-            label1.AutoSize = true;
-            label1.Cursor = Cursors.Hand;
-            label1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(561, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(18, 19);
-            label1.TabIndex = 1;
-            label1.Text = "X";
+            close_BTN.AutoSize = true;
+            close_BTN.Cursor = Cursors.Hand;
+            close_BTN.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            close_BTN.ForeColor = SystemColors.ActiveCaptionText;
+            close_BTN.Location = new Point(561, 0);
+            close_BTN.Name = "close_BTN";
+            close_BTN.Size = new Size(18, 19);
+            close_BTN.TabIndex = 1;
+            close_BTN.Text = "X";
+            close_BTN.Click += close_BTN_Click;
             // 
             // label2
             // 
@@ -165,6 +167,7 @@
             login_BTN.TabIndex = 7;
             login_BTN.Text = "LOGIN";
             login_BTN.UseVisualStyleBackColor = false;
+            login_BTN.Click += login_BTN_Click;
             // 
             // login_ShowPass_CB
             // 
@@ -190,7 +193,7 @@
             Controls.Add(login_username_TB);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(close_BTN);
             Controls.Add(panel1);
             ForeColor = SystemColors.ControlLightLight;
             FormBorderStyle = FormBorderStyle.None;
@@ -206,7 +209,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label close_BTN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox login_username_TB;

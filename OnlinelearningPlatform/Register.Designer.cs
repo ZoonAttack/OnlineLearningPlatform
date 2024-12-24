@@ -117,6 +117,7 @@
             register_BTN.TabIndex = 16;
             register_BTN.Text = "REGISTER";
             register_BTN.UseVisualStyleBackColor = false;
+            register_BTN.Click += register_BTN_Click;
             // 
             // label4
             // 

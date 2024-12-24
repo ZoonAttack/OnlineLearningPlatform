@@ -1,3 +1,5 @@
+using OnlinelearningPlatform.Manager;
+
 namespace OnlinelearningPlatform
 {
     internal static class Program
@@ -11,7 +13,8 @@ namespace OnlinelearningPlatform
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LogIn());
+            Application.Run(new manager());
+            
         }
     }
 }
