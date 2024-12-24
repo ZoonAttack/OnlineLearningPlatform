@@ -139,10 +139,11 @@
             // 
             login_password_TB.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             login_password_TB.Location = new Point(295, 257);
-            login_password_TB.Multiline = true;
             login_password_TB.Name = "login_password_TB";
-            login_password_TB.Size = new Size(255, 26);
+            login_password_TB.PasswordChar = '*';
+            login_password_TB.Size = new Size(255, 24);
             login_password_TB.TabIndex = 6;
+            login_password_TB.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -180,6 +181,7 @@
             login_ShowPass_CB.TabIndex = 8;
             login_ShowPass_CB.Text = "Show Password";
             login_ShowPass_CB.UseVisualStyleBackColor = true;
+            login_ShowPass_CB.CheckedChanged += login_ShowPass_CB_CheckedChanged;
             // 
             // LogIn
             // 
@@ -198,7 +200,9 @@
             ForeColor = SystemColors.ControlLightLight;
             FormBorderStyle = FormBorderStyle.None;
             Name = "LogIn";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Login Form";
+            MouseDown += LogIn_MouseDown;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

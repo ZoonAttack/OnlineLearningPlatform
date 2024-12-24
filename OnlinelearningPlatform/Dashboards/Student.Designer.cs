@@ -29,191 +29,190 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.courses_BTN = new System.Windows.Forms.Button();
-            this.performance_BTN = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.studentName_LB = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            label2 = new Label();
+            close_BTN = new Label();
+            panel2 = new Panel();
+            courses_BTN = new Button();
+            performance_BTN = new Button();
+            button1 = new Button();
+            studentName_LB = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(11)))), ((int)(((byte)(97)))));
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1028, 54);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = Color.FromArgb(33, 11, 97);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(close_BTN);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1199, 62);
+            panel1.TabIndex = 0;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(9, 12);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Online Learning Platform";
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(10, 14);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(165, 17);
+            label2.TabIndex = 2;
+            label2.Text = "Online Learning Platform";
             // 
-            // label1
+            // close_BTN
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(1006, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            close_BTN.AutoSize = true;
+            close_BTN.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            close_BTN.ForeColor = SystemColors.ButtonFace;
+            close_BTN.Location = new Point(1174, 7);
+            close_BTN.Margin = new Padding(2, 0, 2, 0);
+            close_BTN.Name = "close_BTN";
+            close_BTN.Size = new Size(18, 18);
+            close_BTN.TabIndex = 1;
+            close_BTN.Text = "X";
+            close_BTN.Click += label1_Click;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(11)))), ((int)(((byte)(97)))));
-            this.panel2.Controls.Add(this.courses_BTN);
-            this.panel2.Controls.Add(this.performance_BTN);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.studentName_LB);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 54);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(228, 604);
-            this.panel2.TabIndex = 1;
+            panel2.BackColor = Color.FromArgb(33, 11, 97);
+            panel2.Controls.Add(courses_BTN);
+            panel2.Controls.Add(performance_BTN);
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(studentName_LB);
+            panel2.Controls.Add(pictureBox1);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 62);
+            panel2.Margin = new Padding(2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(266, 697);
+            panel2.TabIndex = 1;
             // 
             // courses_BTN
             // 
-            this.courses_BTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(11)))), ((int)(((byte)(97)))));
-            this.courses_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.courses_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courses_BTN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.courses_BTN.Location = new System.Drawing.Point(25, 327);
-            this.courses_BTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.courses_BTN.Name = "courses_BTN";
-            this.courses_BTN.Size = new System.Drawing.Size(171, 32);
-            this.courses_BTN.TabIndex = 6;
-            this.courses_BTN.Text = "COURSES";
-            this.courses_BTN.UseVisualStyleBackColor = false;
+            courses_BTN.BackColor = Color.FromArgb(33, 11, 97);
+            courses_BTN.FlatStyle = FlatStyle.Flat;
+            courses_BTN.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            courses_BTN.ForeColor = SystemColors.ButtonHighlight;
+            courses_BTN.Location = new Point(29, 377);
+            courses_BTN.Margin = new Padding(2);
+            courses_BTN.Name = "courses_BTN";
+            courses_BTN.Size = new Size(200, 37);
+            courses_BTN.TabIndex = 6;
+            courses_BTN.Text = "COURSES";
+            courses_BTN.UseVisualStyleBackColor = false;
             // 
             // performance_BTN
             // 
-            this.performance_BTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(11)))), ((int)(((byte)(97)))));
-            this.performance_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.performance_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.performance_BTN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.performance_BTN.Location = new System.Drawing.Point(25, 272);
-            this.performance_BTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.performance_BTN.Name = "performance_BTN";
-            this.performance_BTN.Size = new System.Drawing.Size(171, 32);
-            this.performance_BTN.TabIndex = 5;
-            this.performance_BTN.Text = "VIEW PERFORMANCE";
-            this.performance_BTN.UseVisualStyleBackColor = false;
+            performance_BTN.BackColor = Color.FromArgb(33, 11, 97);
+            performance_BTN.FlatStyle = FlatStyle.Flat;
+            performance_BTN.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            performance_BTN.ForeColor = SystemColors.ButtonHighlight;
+            performance_BTN.Location = new Point(29, 314);
+            performance_BTN.Margin = new Padding(2);
+            performance_BTN.Name = "performance_BTN";
+            performance_BTN.Size = new Size(200, 37);
+            performance_BTN.TabIndex = 5;
+            performance_BTN.Text = "VIEW PERFORMANCE";
+            performance_BTN.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(11)))), ((int)(((byte)(97)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(25, 214);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "DASHBOARD";
-            this.button1.UseVisualStyleBackColor = false;
+            button1.BackColor = Color.FromArgb(33, 11, 97);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(29, 247);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(200, 37);
+            button1.TabIndex = 4;
+            button1.Text = "DASHBOARD";
+            button1.UseVisualStyleBackColor = false;
             // 
             // studentName_LB
             // 
-            this.studentName_LB.AutoSize = true;
-            this.studentName_LB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentName_LB.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.studentName_LB.Location = new System.Drawing.Point(51, 166);
-            this.studentName_LB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.studentName_LB.Name = "studentName_LB";
-            this.studentName_LB.Size = new System.Drawing.Size(112, 17);
-            this.studentName_LB.TabIndex = 3;
-            this.studentName_LB.Text = "<Student name>";
+            studentName_LB.AutoSize = true;
+            studentName_LB.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            studentName_LB.ForeColor = SystemColors.ButtonFace;
+            studentName_LB.Location = new Point(59, 192);
+            studentName_LB.Margin = new Padding(2, 0, 2, 0);
+            studentName_LB.Name = "studentName_LB";
+            studentName_LB.Size = new Size(112, 17);
+            studentName_LB.TabIndex = 3;
+            studentName_LB.Text = "<Student name>";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(212, 143);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(13, 5);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(247, 165);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(292, 110);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(225, 136);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(341, 127);
+            pictureBox2.Margin = new Padding(2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(262, 157);
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(548, 110);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(225, 136);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(639, 127);
+            pictureBox3.Margin = new Padding(2);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(262, 157);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 3;
+            pictureBox3.TabStop = false;
             // 
-            // Form1
+            // Student
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1028, 658);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1199, 759);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
+            Name = "Student";
+            Text = "Form1";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label close_BTN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
