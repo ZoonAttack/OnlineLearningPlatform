@@ -25,18 +25,19 @@ namespace OnlinelearningPlatform
         private void login_BTN_Click(object sender, EventArgs e)
         {
             Tuple<bool, string> tuple = Utility.Login(login_username_TB.Text, login_password_TB.Text);
+            string username = login_username_TB.Text.Split('@')[0];
             if (tuple.Item1 == true)
             {
                 switch (tuple.Item2)
                 {
                     case "student.com":
-                        Student student = new Student(login_username_TB.Text.Split('@')[0]);
+                        Student student = new Student(username);
                         student.Show();
                         Hide();
                         Close();
                         break;
                     case "instructor.com":
-                        Instructor instructor = new Instructor();
+                        Instructor instructor = new Instructor(login_username_TB.Text);
                         instructor.Show();
                         Hide();
                         Close();

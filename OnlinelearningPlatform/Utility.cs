@@ -10,6 +10,8 @@ namespace OnlinelearningPlatform
 {
     public class Utility
     {
+        static string connectionString = "Data Source=MYPC;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;TrustServerCertificate=True";
+
         public static Tuple<bool, string> Register(string username, string password)
         {
             try
@@ -20,7 +22,6 @@ namespace OnlinelearningPlatform
                 string name = username.Split('@')[0];
                 string identifier = username.Split('@')[1];
 
-                string connectionString = "Data Source=ZOON;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     switch (identifier)
@@ -32,7 +33,7 @@ namespace OnlinelearningPlatform
                             query = "insert into Instructor(Email, Pass, Created_at) values(@email, @pass, @created_at)";
                             break;
                         case "admin.com":
-                            query = "insert into Administrator(Email, Pass, Created_at) values(@email, @pass, @created_at)";
+                            query = "insert into Adminstrator(Email, Pass, Created_at) values(@email, @pass, @created_at)";
                             break;
                         default:
                             throw new InvalidDataException("Invalid identifier. must be: student, instructor, or admin");
@@ -61,7 +62,6 @@ namespace OnlinelearningPlatform
                 string name = username.Split('@')[0];
                 string identifier = username.Split('@')[1];
 
-                string connectionString = "Data Source=ZOON;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     switch (identifier)
@@ -73,7 +73,7 @@ namespace OnlinelearningPlatform
                             query = "select * from Instructor where Email = @email and Pass = @pass";
                             break;
                         case "admin.com":
-                            query = "select * from Administrator where Email = @email and Pass = @pass";
+                            query = "select * from Adminstrator where Email = @email and Pass = @pass";
                             break;
                         default:
                             throw new InvalidDataException("Invalid identifier. must be: student, instructor, or admin");
@@ -94,11 +94,10 @@ namespace OnlinelearningPlatform
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             return Tuple.Create(false, string.Empty);
         }
-        public static string GetID(string username)
+        public static string GetStudentID(string username)
         {
             try
             {
-                string connectionString = "Data Source=ZOON;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
                 string query = "select ID from Student";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -116,21 +115,21 @@ namespace OnlinelearningPlatform
             { MessageBox.Show(ex.Message); }
             return null;
         }
-        public static DataTable GetReport(string username, string identifier)
+        public static DataTable GetReport(string username)
         {
             try
             {
-                string connectionString = "Data Source=ZOON;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
                 string query = "select ID, Date, Content from Report join Receive_Report on Report.ID = Receive_Report.Report_ID where Receive_Report.Student_ID = @studentID";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("studentID", GetID(username));
+                    cmd.Parameters.AddWithValue("studentID", GetStudentID(username));
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     connection.Open();
                     sda.Fill(dt);
+                    connection.Close();
                     return dt;
                 }
             }
@@ -138,5 +137,83 @@ namespace OnlinelearningPlatform
             { MessageBox.Show(ex.Message); }
             return null;
         }
+
+        public static string GetCourse(string username)
+        {
+
+            string query = "select Title from Course join Instructor on Course.Instructor_ID = Instructor.ID where Instructor.Email = @email";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("email", username);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                connection.Open();
+                sda.Fill(dt);
+                connection.Close();
+                switch (dt.Rows[0]["Title"])
+                {
+                    case "Intelligent Systems":
+                        return "intelligent systems";
+                    case "Computer Networks":
+                        return  "computer networks";
+                    case "Database Systems":
+                        return "database systems";
+                    default:
+                        return "No Courses";
+
+                }
+
+            }
+
+        }
+        public static DataTable GetStudentGrades(string username)
+        {
+            try
+            {
+                string query = @"
+SELECT 
+    sp.Student_ID, 
+    s.Name, 
+    c.Title AS [Course Exam], 
+    sp.Grade, 
+    CASE 
+        WHEN sp.Grade < 5 THEN 'Not sigma' 
+        ELSE 'Sigma' 
+    END AS [is sigma?]
+FROM 
+    Student AS s
+JOIN 
+    Student_Participates AS sp ON s.ID = sp.Student_ID
+JOIN 
+    Course AS c ON c.ID = sp.Course_ID
+JOIN 
+    Instructor ON Instructor.ID = c.Instructor_ID
+WHERE 
+    Instructor.Email = @email 
+    AND s.Name IS NOT NULL
+ORDER BY 
+    sp.Student_ID, 
+    s.Name;";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("email", username);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    connection.Open();
+                    sda.Fill(dt);
+                    connection.Close();
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            return null;
+        }
+
+
     }
 }

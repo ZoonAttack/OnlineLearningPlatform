@@ -17,7 +17,7 @@ namespace OnlinelearningPlatform
         public Student(string username)
         {
             InitializeComponent();
-            DataTable dt = Utility.GetReport(username, "student.com");
+            DataTable dt = Utility.GetReport(username);
             StudentReport.DataSource = dt;
             studentName_LB.Text = username.Split('@')[0];
         }
