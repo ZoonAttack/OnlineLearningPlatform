@@ -38,10 +38,7 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             courses_GB = new GroupBox();
-            label4 = new Label();
             pictureBox4 = new PictureBox();
-            label3 = new Label();
-            label1 = new Label();
             performance_GB = new GroupBox();
             StudentReport = new DataGridView();
             assessment_GB = new GroupBox();
@@ -153,10 +150,7 @@
             // 
             // courses_GB
             // 
-            courses_GB.Controls.Add(label4);
             courses_GB.Controls.Add(pictureBox4);
-            courses_GB.Controls.Add(label3);
-            courses_GB.Controls.Add(label1);
             courses_GB.Controls.Add(pictureBox3);
             courses_GB.Controls.Add(pictureBox2);
             courses_GB.Location = new Point(271, 62);
@@ -165,15 +159,6 @@
             courses_GB.TabIndex = 4;
             courses_GB.TabStop = false;
             courses_GB.Text = "Courses";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(400, 218);
-            label4.Name = "label4";
-            label4.Size = new Size(100, 15);
-            label4.TabIndex = 7;
-            label4.Text = "Database systems";
             // 
             // pictureBox4
             // 
@@ -185,24 +170,6 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 6;
             pictureBox4.TabStop = false;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(731, 218);
-            label3.Name = "label3";
-            label3.Size = new Size(112, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Computer networks";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(81, 218);
-            label1.Name = "label1";
-            label1.Size = new Size(105, 15);
-            label1.TabIndex = 4;
-            label1.Text = "Intelligent systems";
             // 
             // performance_GB
             // 
@@ -257,7 +224,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             courses_GB.ResumeLayout(false);
-            courses_GB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             performance_GB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)StudentReport).EndInit();
@@ -275,11 +241,8 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private Label studentName_LB;
         private GroupBox courses_GB;
-        private Label label3;
-        private Label label1;
         private GroupBox performance_GB;
         private GroupBox assessment_GB;
-        private Label label4;
         private PictureBox pictureBox4;
         private DataGridView dataGridView2;
         private DataGridView StudentReport;
