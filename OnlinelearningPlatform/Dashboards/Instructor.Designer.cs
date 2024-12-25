@@ -41,6 +41,10 @@
             database_Click = new PictureBox();
             students_Grid = new DataGridView();
             groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            label3 = new Label();
+            update_BTN = new Button();
+            grade_TB = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -50,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)database_Click).BeginInit();
             ((System.ComponentModel.ISupportInitialize)students_Grid).BeginInit();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -176,15 +181,19 @@
             // 
             // students_Grid
             // 
+            students_Grid.AllowUserToAddRows = false;
+            students_Grid.AllowUserToDeleteRows = false;
             students_Grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             students_Grid.GridColor = Color.FromArgb(33, 11, 97);
-            students_Grid.Location = new Point(21, 22);
+            students_Grid.Location = new Point(20, 22);
             students_Grid.Name = "students_Grid";
-            students_Grid.Size = new Size(884, 408);
+            students_Grid.ReadOnly = true;
+            students_Grid.Size = new Size(885, 203);
             students_Grid.TabIndex = 10;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(students_Grid);
             groupBox1.Location = new Point(276, 282);
             groupBox1.Name = "groupBox1";
@@ -192,6 +201,47 @@
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Student grades";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label3);
+            groupBox2.Controls.Add(update_BTN);
+            groupBox2.Controls.Add(grade_TB);
+            groupBox2.Location = new Point(20, 264);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(220, 107);
+            groupBox2.TabIndex = 15;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Grade";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 28);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 15);
+            label3.TabIndex = 14;
+            label3.Text = "New grade";
+            // 
+            // update_BTN
+            // 
+            update_BTN.BackColor = Color.SlateGray;
+            update_BTN.Font = new Font("Times New Roman", 9F);
+            update_BTN.ForeColor = Color.Transparent;
+            update_BTN.Location = new Point(117, 69);
+            update_BTN.Name = "update_BTN";
+            update_BTN.Size = new Size(74, 35);
+            update_BTN.TabIndex = 11;
+            update_BTN.Text = "UPDATE";
+            update_BTN.UseVisualStyleBackColor = false;
+            update_BTN.Click += update_BTN_Click;
+            // 
+            // grade_TB
+            // 
+            grade_TB.Location = new Point(96, 25);
+            grade_TB.Name = "grade_TB";
+            grade_TB.Size = new Size(114, 23);
+            grade_TB.TabIndex = 12;
             // 
             // Instructor
             // 
@@ -206,6 +256,7 @@
             Name = "Instructor";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            FormClosed += Instructor_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -217,6 +268,8 @@
             ((System.ComponentModel.ISupportInitialize)database_Click).EndInit();
             ((System.ComponentModel.ISupportInitialize)students_Grid).EndInit();
             groupBox1.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -234,6 +287,10 @@
         private PictureBox database_Click;
         private DataGridView students_Grid;
         private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private Label label3;
+        private Button update_BTN;
+        private TextBox grade_TB;
     }
 }
 

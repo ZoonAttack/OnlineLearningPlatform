@@ -39,7 +39,6 @@
             register_username_TB = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            close_BTN = new Label();
             register_password_TB = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -162,19 +161,6 @@
             label2.TabIndex = 11;
             label2.Text = "Register";
             // 
-            // close_BTN
-            // 
-            close_BTN.AutoSize = true;
-            close_BTN.Cursor = Cursors.Hand;
-            close_BTN.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            close_BTN.ForeColor = SystemColors.ActiveCaptionText;
-            close_BTN.Location = new Point(561, 0);
-            close_BTN.Name = "close_BTN";
-            close_BTN.Size = new Size(18, 19);
-            close_BTN.TabIndex = 10;
-            close_BTN.Text = "X";
-            close_BTN.Click += close_BTN_Click;
-            // 
             // register_password_TB
             // 
             register_password_TB.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -197,12 +183,10 @@
             Controls.Add(register_username_TB);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(close_BTN);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Register";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            MouseDown += Register_MouseDown;
+            FormClosed += Register_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -224,7 +208,6 @@
         private System.Windows.Forms.TextBox register_username_TB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label close_BTN;
         private TextBox register_password_TB;
     }
 }

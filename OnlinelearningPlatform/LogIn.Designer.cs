@@ -33,7 +33,6 @@
             pictureBox1 = new PictureBox();
             label6 = new Label();
             signUp_BTN = new Button();
-            close_BTN = new Label();
             label2 = new Label();
             label3 = new Label();
             login_username_TB = new TextBox();
@@ -90,19 +89,6 @@
             signUp_BTN.Text = "SIGN UP";
             signUp_BTN.UseVisualStyleBackColor = false;
             signUp_BTN.Click += signUp_BTN_Click;
-            // 
-            // close_BTN
-            // 
-            close_BTN.AutoSize = true;
-            close_BTN.Cursor = Cursors.Hand;
-            close_BTN.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            close_BTN.ForeColor = SystemColors.ActiveCaptionText;
-            close_BTN.Location = new Point(561, 0);
-            close_BTN.Name = "close_BTN";
-            close_BTN.Size = new Size(18, 19);
-            close_BTN.TabIndex = 1;
-            close_BTN.Text = "X";
-            close_BTN.Click += close_BTN_Click;
             // 
             // label2
             // 
@@ -194,14 +180,12 @@
             Controls.Add(login_username_TB);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(close_BTN);
             Controls.Add(panel1);
             ForeColor = SystemColors.ControlLightLight;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "LogIn";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login Form";
-            MouseDown += LogIn_MouseDown;
+            FormClosed += LogIn_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -212,7 +196,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label close_BTN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox login_username_TB;

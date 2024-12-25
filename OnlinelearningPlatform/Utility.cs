@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlinelearningPlatform
 {
     public class Utility
     {
-        static string connectionString = "Data Source=MYPC;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;TrustServerCertificate=True";
+        static string connectionString = "Data Source=ZOON;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;TrustServerCertificate=True";
 
         public static Tuple<bool, string> Register(string username, string password)
         {
@@ -98,11 +93,12 @@ namespace OnlinelearningPlatform
         {
             try
             {
-                string query = "select ID from Student";
+                string query = "select ID from Student where Student.Email = @email";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("email", username);
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     connection.Open();
@@ -134,6 +130,30 @@ namespace OnlinelearningPlatform
                 }
             }
             catch(Exception ex)
+            { MessageBox.Show(ex.Message); }
+            return null;
+        }
+        public static DataTable GetAssessments(string username)
+        {
+            try
+            {
+                string query = @"select Assessment_ID 
+                                from Course_Includes 
+                                join Assessment on Course_Includes.Assessment_ID = Assessment.ID join Student_Enrolls_Course as s_e_c on s_e_c.Course_ID = where";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("studentID", GetStudentID(username));
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    connection.Open();
+                    sda.Fill(dt);
+                    connection.Close();
+                    return dt;
+                }
+            }
+            catch (Exception ex)
             { MessageBox.Show(ex.Message); }
             return null;
         }
@@ -172,12 +192,7 @@ namespace OnlinelearningPlatform
         {
             try
             {
-                string query = @"
-SELECT 
-    sp.Student_ID, 
-    s.Name, 
-    c.Title AS [Course Exam], 
-    sp.Grade, 
+                string query = @"SELECT sp.Student_ID, s.Name, c.Title AS [Course Exam], sp.Grade, 
     CASE 
         WHEN sp.Grade < 5 THEN 'Not sigma' 
         ELSE 'Sigma' 
@@ -214,6 +229,25 @@ ORDER BY
             return null;
         }
 
+        public static bool UpdateGrade(int id, int value)
+        {
+            try
+            {
+                string query = "update Student_Participates set Grade = @value where Student_ID = @id";
 
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("value", value);
+                    cmd.Parameters.AddWithValue("id", id);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message); } return false;
+        }
     }
 }

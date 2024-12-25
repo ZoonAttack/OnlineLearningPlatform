@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student));
-            panel1 = new Panel();
-            label2 = new Label();
-            close_BTN = new Label();
             panel2 = new Panel();
             studentName_LB = new Label();
             pictureBox1 = new PictureBox();
@@ -42,7 +39,10 @@
             performance_GB = new GroupBox();
             StudentReport = new DataGridView();
             assessment_GB = new GroupBox();
-            panel1.SuspendLayout();
+            Assessments = new DataGridView();
+            close_BTN = new Label();
+            label2 = new Label();
+            panel1 = new Panel();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -51,44 +51,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             performance_GB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)StudentReport).BeginInit();
+            assessment_GB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Assessments).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(33, 11, 97);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(close_BTN);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1199, 62);
-            panel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(10, 14);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(165, 17);
-            label2.TabIndex = 2;
-            label2.Text = "Online Learning Platform";
-            // 
-            // close_BTN
-            // 
-            close_BTN.AutoSize = true;
-            close_BTN.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            close_BTN.ForeColor = SystemColors.ButtonFace;
-            close_BTN.Location = new Point(1174, 7);
-            close_BTN.Margin = new Padding(2, 0, 2, 0);
-            close_BTN.Name = "close_BTN";
-            close_BTN.Size = new Size(18, 18);
-            close_BTN.TabIndex = 1;
-            close_BTN.Text = "X";
-            close_BTN.Click += close_BTN_Click;
             // 
             // panel2
             // 
@@ -105,15 +71,14 @@
             // studentName_LB
             // 
             studentName_LB.AutoSize = true;
-            studentName_LB.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            studentName_LB.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             studentName_LB.ForeColor = SystemColors.ButtonFace;
             studentName_LB.Location = new Point(26, 403);
             studentName_LB.Margin = new Padding(2, 0, 2, 0);
             studentName_LB.Name = "studentName_LB";
-            studentName_LB.Size = new Size(214, 31);
+            studentName_LB.Size = new Size(194, 31);
             studentName_LB.TabIndex = 3;
             studentName_LB.Text = "<Student name>";
-            studentName_LB.MouseDown += Student_MouseDown;
             // 
             // pictureBox1
             // 
@@ -193,12 +158,59 @@
             // 
             // assessment_GB
             // 
+            assessment_GB.Controls.Add(Assessments);
             assessment_GB.Location = new Point(271, 562);
             assessment_GB.Name = "assessment_GB";
             assessment_GB.Size = new Size(925, 197);
             assessment_GB.TabIndex = 6;
             assessment_GB.TabStop = false;
             assessment_GB.Text = "Assessments due";
+            // 
+            // Assessments
+            // 
+            Assessments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Assessments.GridColor = SystemColors.ActiveBorder;
+            Assessments.Location = new Point(22, 21);
+            Assessments.Name = "Assessments";
+            Assessments.ReadOnly = true;
+            Assessments.Size = new Size(322, 170);
+            Assessments.TabIndex = 1;
+            // 
+            // close_BTN
+            // 
+            close_BTN.AutoSize = true;
+            close_BTN.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            close_BTN.ForeColor = SystemColors.ButtonFace;
+            close_BTN.Location = new Point(1174, 7);
+            close_BTN.Margin = new Padding(2, 0, 2, 0);
+            close_BTN.Name = "close_BTN";
+            close_BTN.Size = new Size(18, 18);
+            close_BTN.TabIndex = 1;
+            close_BTN.Text = "X";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(10, 14);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(165, 17);
+            label2.TabIndex = 2;
+            label2.Text = "Online Learning Platform";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(33, 11, 97);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(close_BTN);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1199, 62);
+            panel1.TabIndex = 0;
             // 
             // Student
             // 
@@ -211,13 +223,11 @@
             Controls.Add(courses_GB);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(2);
             Name = "Student";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            FormClosed += Student_FormClosed;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -227,14 +237,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             performance_GB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)StudentReport).EndInit();
+            assessment_GB.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Assessments).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label close_BTN;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -246,6 +256,10 @@
         private PictureBox pictureBox4;
         private DataGridView dataGridView2;
         private DataGridView StudentReport;
+        private DataGridView Assessments;
+        private Label close_BTN;
+        private Label label2;
+        private Panel panel1;
     }
 }
 

@@ -16,7 +16,7 @@ namespace OnlinelearningPlatform
 {
     public partial class LogIn : Form
     {
-       
+
         public LogIn()
         {
             InitializeComponent();
@@ -78,23 +78,9 @@ namespace OnlinelearningPlatform
                 login_password_TB.UseSystemPasswordChar = true;
 
         }
-        #region Utility
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-       
-        private void LogIn_MouseDown(object sender, MouseEventArgs e)
+         private void LogIn_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            manager.managerInstance.CloseApp();
         }
-        #endregion
     }
 }
