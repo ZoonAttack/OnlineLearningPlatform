@@ -44,7 +44,7 @@ namespace OnlinelearningPlatform
                     return Tuple.Create(true, identifier);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message + "AT Register"); }
             return Tuple.Create(false, string.Empty);
         }
         public static Tuple<bool, string> Login(string username, string password)
@@ -86,7 +86,7 @@ namespace OnlinelearningPlatform
                     return Tuple.Create(true, identifier);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message + "AT LogIN"); }
             return Tuple.Create(false, string.Empty);
         }
         public static string GetStudentID(string username)
@@ -98,7 +98,7 @@ namespace OnlinelearningPlatform
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("email", username);
+                    cmd.Parameters.AddWithValue("email", username + "@student.com");
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     connection.Open();
@@ -108,7 +108,7 @@ namespace OnlinelearningPlatform
                 }
             }
             catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
+            { MessageBox.Show(ex.Message + "AT GetStudentID"); }
             return null;
         }
         public static DataTable GetReport(string username)
@@ -130,16 +130,18 @@ namespace OnlinelearningPlatform
                 }
             }
             catch(Exception ex)
-            { MessageBox.Show(ex.Message); }
+            { MessageBox.Show(ex.Message + "AT getReport"); }
             return null;
         }
         public static DataTable GetAssessments(string username)
         {
             try
             {
-                string query = @"select Assessment_ID 
-                                from Course_Includes 
-                                join Assessment on Course_Includes.Assessment_ID = Assessment.ID join Student_Enrolls_Course as s_e_c on s_e_c.Course_ID = where";
+                string query = @"select assessment.id, course.title, assessment.content
+                                from assessment as ases
+                                join course as c on c.id = ases.course_id
+                                join instructor as ins on ins.id = course.instructor_id
+                                join ";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -154,38 +156,44 @@ namespace OnlinelearningPlatform
                 }
             }
             catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
+            { MessageBox.Show(ex.Message + "AT getAssessment"); }
             return null;
         }
 
         public static string GetCourse(string username)
         {
 
-            string query = "select Title from Course join Instructor on Course.Instructor_ID = Instructor.ID where Instructor.Email = @email";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("email", username);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                connection.Open();
-                sda.Fill(dt);
-                connection.Close();
-                switch (dt.Rows[0]["Title"])
+                string query = "select Title from Course join Instructor on Course.Instructor_ID = Instructor.ID where Instructor.Email = @email";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    case "Intelligent Systems":
-                        return "intelligent systems";
-                    case "Computer Networks":
-                        return  "computer networks";
-                    case "Database Systems":
-                        return "database systems";
-                    default:
-                        return "No Courses";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("email", username);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    connection.Open();
+                    sda.Fill(dt);
+                    connection.Close();
+                    switch (dt.Rows[0]["Title"])
+                    {
+                        case "Intelligent Systems":
+                            return "intelligent systems";
+                        case "Computer Networks":
+                            return "computer networks";
+                        case "Database Systems":
+                            return "database systems";
+                        default:
+                            return "No Courses";
+
+                    }
 
                 }
-
             }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message + "AT getCourse"); }
+            return string.Empty;
 
         }
         public static DataTable GetStudentGrades(string username)
@@ -225,7 +233,7 @@ ORDER BY
                 }
             }
             catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
+            { MessageBox.Show(ex.Message + "AT getStudentGrade"); }
             return null;
         }
 
@@ -247,7 +255,7 @@ ORDER BY
                 return true;
             }
             catch(Exception ex)
-            { MessageBox.Show(ex.Message); } return false;
+            { MessageBox.Show(ex.Message + "AT updateGrade"); } return false;
         }
     }
 }
