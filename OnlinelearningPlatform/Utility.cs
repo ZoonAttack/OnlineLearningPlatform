@@ -5,7 +5,7 @@ namespace OnlinelearningPlatform
 {
     public class Utility
     {
-        static string connectionString = "Data Source=ZOON;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;TrustServerCertificate=True";
+        static string connectionString = "Data Source=MYPC;Initial Catalog=\"Online Learning Platform\";Integrated Security=True;TrustServerCertificate=True";
 
         public static Tuple<bool, string> Register(string username, string password)
         {
@@ -115,7 +115,10 @@ namespace OnlinelearningPlatform
         {
             try
             {
-                string query = "select ID, Date, Content from Report join Receive_Report on Report.ID = Receive_Report.Report_ID where Receive_Report.Student_ID = @studentID";
+                string query = @"select student.Name, Date, Content from Report 
+                            join Receive_Report on Report.ID = Receive_Report.Report_ID 
+                            join student on receive_report.Student_ID = student.ID
+                            where Receive_Report.Student_ID = @studentID";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -137,11 +140,13 @@ namespace OnlinelearningPlatform
         {
             try
             {
-                string query = @"select assessment.id, course.title, assessment.content
+                string query = @"select student.name, ases.Title, ases.Content
                                 from assessment as ases
                                 join course as c on c.id = ases.course_id
-                                join instructor as ins on ins.id = course.instructor_id
-                                join ";
+                                join instructor as ins on ins.id = c.Instructor_ID
+                                join Student_Participates as sp on sp.Assessment_ID = ases.ID
+                                join student on Student.ID = sp.Student_ID
+                                where sp.Student_ID = @studentID ";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

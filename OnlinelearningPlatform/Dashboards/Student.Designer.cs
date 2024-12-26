@@ -173,7 +173,7 @@
             Assessments.Location = new Point(22, 21);
             Assessments.Name = "Assessments";
             Assessments.ReadOnly = true;
-            Assessments.Size = new Size(322, 170);
+            Assessments.Size = new Size(894, 170);
             Assessments.TabIndex = 1;
             // 
             // close_BTN
