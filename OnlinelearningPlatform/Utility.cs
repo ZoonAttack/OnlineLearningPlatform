@@ -262,5 +262,86 @@ ORDER BY
             catch(Exception ex)
             { MessageBox.Show(ex.Message + "AT updateGrade"); } return false;
         }
+
+
+        public static DataTable GetInstructors()
+        {
+            try
+            {
+                string query = @"select ID, Email, Created_at, Name from Instructor";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    connection.Open();
+                    sda.Fill(dt);
+                    connection.Close();
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message + "at GetInstructor"); } return new DataTable();
+        }
+        public static DataTable GetStudents()
+        {
+            try
+            {
+                string query = @"select ID, Email, Created_at, Name from Student";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    connection.Open();
+                    sda.Fill(dt);
+                    connection.Close();
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message + "at GetStudents"); } return new DataTable();
+     
+        }
+
+        public static bool UpdateCell(string newValue, string column, int rowID, bool isInstructor)
+        {
+            if (isInstructor)
+            {
+                string query = @"update Instructor set @column = @newValue where Instructor.ID = @rowID";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("column", column);
+                    cmd.Parameters.AddWithValue("newValue", newValue);
+                    cmd.Parameters.AddWithValue("rowID", rowID);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+            }
+            else
+            {
+                string query = @"update Student set @column = @newValue where Student.ID = @rowID";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("column", column);
+                    cmd.Parameters.AddWithValue("newValue", newValue);
+                    cmd.Parameters.AddWithValue("rowID", rowID);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+            }
+        }
     }
 }

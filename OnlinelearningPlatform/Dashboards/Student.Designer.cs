@@ -40,7 +40,6 @@
             StudentReport = new DataGridView();
             assessment_GB = new GroupBox();
             Assessments = new DataGridView();
-            close_BTN = new Label();
             label2 = new Label();
             panel1 = new Panel();
             panel2.SuspendLayout();
@@ -176,18 +175,6 @@
             Assessments.Size = new Size(894, 170);
             Assessments.TabIndex = 1;
             // 
-            // close_BTN
-            // 
-            close_BTN.AutoSize = true;
-            close_BTN.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            close_BTN.ForeColor = SystemColors.ButtonFace;
-            close_BTN.Location = new Point(1174, 7);
-            close_BTN.Margin = new Padding(2, 0, 2, 0);
-            close_BTN.Name = "close_BTN";
-            close_BTN.Size = new Size(18, 18);
-            close_BTN.TabIndex = 1;
-            close_BTN.Text = "X";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -204,7 +191,6 @@
             // 
             panel1.BackColor = Color.FromArgb(33, 11, 97);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(close_BTN);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
@@ -257,7 +243,6 @@
         private DataGridView dataGridView2;
         private DataGridView StudentReport;
         private DataGridView Assessments;
-        private Label close_BTN;
         private Label label2;
         private Panel panel1;
     }
